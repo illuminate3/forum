@@ -11,8 +11,15 @@ class ForumServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
+        $this->publishes([
+            __DIR__.'/../Config/forum.php' => base_path('config/forum.php'),
+        ]);
+
+        view()->share('template', config('forum.template'));
+        view()->share('content', config('forum.content'));
+
         $this->loadViewsFrom(__DIR__.'/../Views', 'Forum');
-	}
+    }
 
 	/**
 	 * Register the application services.
