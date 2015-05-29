@@ -1,7 +1,7 @@
 @extends($template)
 @section($content)
 
-Muestra todos los conversaciones
+Show all conversations!
 
 
 @stop
