@@ -41,6 +41,9 @@ class ForumServiceProvider extends ServiceProvider {
         ]);
     }
 
+    /**
+     * Share variables across the views.
+     */
     protected function shareGlobalVariables()
     {
         view()->share('template', config('forum.template'));
