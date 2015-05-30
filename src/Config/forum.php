@@ -11,6 +11,18 @@ return [
     /*
      * Define yield area where the forum views will be displayed on your app.
      */
-    'content'   => 'content'
+    'content'   => 'content',
+
+    /*
+     * Define topics for the forum
+     */
+    'topics' => [
+        'general' => 'General',
+    ],
+
+    /**
+     * Display avatars
+     */
+    'avatar' => false,
 
 ];

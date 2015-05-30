@@ -1,6 +1,8 @@
 <?php namespace Socieboy\Forum\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Socieboy\Forum\Commands\MigrationForum;
+use Socieboy\Forum\Commands\MigrateForumCommand;
 
 class ForumServiceProvider extends ServiceProvider {
 
@@ -25,6 +27,13 @@ class ForumServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+
+        $this->app->bindShared('command.forum.table', function ($app) {
+            return new MigrateForumCommand();
+        });
+
+        $this->commands('command.forum.table');
+
         /**
          * Include routes for the forum.
          */
