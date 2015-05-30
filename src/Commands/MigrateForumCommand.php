@@ -63,7 +63,7 @@ class MigrateForumCommand extends Command {
         {
             return  file_get_contents( __DIR__.'/../Stubs/'.$stub.'.stub');
         }
-        throw new \Exception('We could create the migration!');
+        throw new \Exception('We could not create the migration!');
     }
 
 }
