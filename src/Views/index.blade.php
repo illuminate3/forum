@@ -1,9 +1,7 @@
 @extends($template)
 @section($content)
 
-        <div class="pull-right">
-            <a href="{{ route('forum.conversation.create') }}" type="submit" class="btn btn-sm btn-success">Create Conversation</a>
-        </div>
+        @include('Forum::create')
 
         <br/>
         <br/>

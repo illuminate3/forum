@@ -4,6 +4,8 @@ use App\Http\Controllers\Controller;
 use Socieboy\Forum\Entities\Conversations\Conversation;
 use Socieboy\Forum\Requests\ConversationRequest;
 use Illuminate\Auth\Guard;
+use League\CommonMark\CommonMarkConverter;
+
 
 class ConversationController extends Controller{
 
@@ -41,14 +43,23 @@ class ConversationController extends Controller{
      * Store the new conversation.
      *
      * @param ConversationRequest $request
+     * @param CommonMarkConverter $converter
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(ConversationRequest $request)
+    public function store(ConversationRequest $request, CommonMarkConverter $converter)
     {
+        $data = $request->except('_token');
+
         $conversation = new Conversation();
+
         $conversation->user_id = $this->user->id;
-        $conversation->fill($request->only(['title', 'message', 'topic_id']));
+
+        $data['message'] = $converter->convertToHtml($data['message']);
+
+        $conversation->fill($data);
+
         $conversation->save();
+
         return redirect()->route('forum');
     }
 
