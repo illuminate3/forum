@@ -20,9 +20,19 @@ return [
         'general' => 'General',
     ],
 
+
     /**
-     * Display avatars
+     * User settings
      */
-    'avatar' => false,
+    'user' => [
+
+
+        'model' => 'App\User',
+
+
+        'avatar' => true
+
+    ],
+
 
 ];

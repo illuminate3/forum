@@ -8,4 +8,8 @@ class Conversation extends Model{
 
     protected $fillable = ['title', 'message', 'topic_id'];
 
+    public function user()
+    {
+        return $this->belongsTo(config('forum.user.model'));
+    }
 } 
