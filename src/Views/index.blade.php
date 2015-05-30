@@ -1,10 +1,7 @@
 @extends($template)
 @section($content)
 
-        @include('Forum::create')
-
-        <br/>
-        <br/>
+        @include('Forum::Conversations.create')
 
         <ul class="list-group">
             @foreach($conversations as $conversation)

@@ -14,7 +14,7 @@ class ConversationController extends Controller{
     function __construct(Guard $auth)
     {
         $this->middleware('auth');
-        $this->user = $auth->user();
+        $this->user = $auth;
     }
 
     /**
@@ -52,7 +52,7 @@ class ConversationController extends Controller{
 
         $conversation = new Conversation();
 
-        $conversation->user_id = $this->user->id;
+        $conversation->user_id = $this->auth->id;
 
         $data['message'] = $converter->convertToHtml($data['message']);
 
