@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConversationsTable extends Migration {
+class CreateRepliesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,25 +12,30 @@ class CreateConversationsTable extends Migration {
 	 */
 	public function up()
 	{
-	    // Create conversations table.
+		// Create replies table
 
-        Schema::create('conversations', function (Blueprint $table) {
+        Schema::create('replies', function (Blueprint $table) {
 
             $table->engine = 'InnoDB';
             $table->increments('id');
 
-            $table->string('title');
             $table->text('message');
 
-            $table->text('topic_id');
-
+            $table->integer('conversation_id')->unsigned();
+            $table->foreign('conversation_id')
+                ->references('id')->on('conversations')->onDelete('cascade');
+            
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')
                 ->references('id')->on('users')->onDelete('cascade');
 
-            $table->string('slug');
+            $table->integer('like')->default(0);
+            $table->integer('un_like')->default(0);
 
+            $table->boolean('correct_answer')->default(false);
+            
             $table->timestamps();
+            
         });
 	}
 
@@ -41,9 +46,9 @@ class CreateConversationsTable extends Migration {
 	 */
 	public function down()
 	{
-	    // Delete conversations table.
-
-		Schema::drop('conversations');
+        // Delete table replies
+        
+        Schema::drop('replies');
 	}
 
 }

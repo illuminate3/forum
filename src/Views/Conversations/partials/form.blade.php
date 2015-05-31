@@ -20,6 +20,6 @@
 
 <div class="form-group @if($errors->has('message')) has-error @endif">
     <label for="message">Message</label>
-    <textarea class="form-control" rows="10" style="resize:none" name="message"></textarea>
+    <textarea class="form-control"  cols="30" rows="10" style="resize:none" name="message"></textarea>
     @if($errors->has('title')) <p class="help-block">{{ $errors->first('message') }}</p> @endif
 </div>

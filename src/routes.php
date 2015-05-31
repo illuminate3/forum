@@ -6,9 +6,9 @@ Route::get('forum/conversation/create', ['as' => 'forum.conversation.create', 'u
 
 Route::post('forum/conversation', ['as' => 'forum.conversation.store', 'uses' => 'Socieboy\Forum\Controllers\ConversationController@store']);
 
-Route::get('forum/{id}', ['as' => 'forum.conversation.show', 'uses' => 'Socieboy\Forum\Controllers\ConversationController@show']);
+Route::get('forum/conversation/{slug}', ['as' => 'forum.conversation.show', 'uses' => 'Socieboy\Forum\Controllers\ConversationController@show']);
 
-Route::get('forum/conversation/reply', ['as' => 'forum.conversations.reply.create', 'uses' => 'Socieboy\Forum\Controllers\ConversationController@store']);
+Route::post('forum/conversation/{slug}/reply', ['as' => 'forum.conversation.reply.store', 'uses' => 'Socieboy\Forum\Controllers\RepliesController@store']);
 
 
 

@@ -2,30 +2,26 @@
 
 use App\Http\Controllers\Controller;
 use Socieboy\Forum\Entities\Conversations\Conversation;
+use Socieboy\Forum\Jobs\StartConversationJob;
 use Socieboy\Forum\Requests\ConversationRequest;
-use Illuminate\Auth\Guard;
-use League\CommonMark\CommonMarkConverter;
 
 
 class ConversationController extends Controller{
 
-    protected $user;
-
-    function __construct(Guard $auth)
+    function __construct()
     {
         $this->middleware('auth');
-        $this->user = $auth;
     }
 
     /**
      * Display a conversation and replies
      *
-     * @param $id
+     * @param $slug
      * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show($slug)
     {
-        $conversation = Conversation::findOrFail($id);
+        $conversation = Conversation::where('slug', $slug)->get()->first();
         return view('Forum::Conversations.show', compact('conversation'));
     }
 
@@ -43,22 +39,16 @@ class ConversationController extends Controller{
      * Store the new conversation.
      *
      * @param ConversationRequest $request
-     * @param CommonMarkConverter $converter
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(ConversationRequest $request, CommonMarkConverter $converter)
+    public function store(ConversationRequest $request)
     {
-        $data = $request->except('_token');
+        $job = new StartConversationJob(
+                new Conversation(),
+                $request->except('_token')
+        );
 
-        $conversation = new Conversation();
-
-        $conversation->user_id = $this->auth->id;
-
-        $data['message'] = $converter->convertToHtml($data['message']);
-
-        $conversation->fill($data);
-
-        $conversation->save();
+        $job->handle();
 
         return redirect()->route('forum');
     }

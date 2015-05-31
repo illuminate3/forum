@@ -28,6 +28,8 @@ class MigrateForumCommand extends Command {
 
         $this->createMigration('conversations');
 
+        $this->createMigration('replies');
+
         $this->info('Migrations created successfully!');
 
         $this->laravel['composer']->dumpAutoloads();
