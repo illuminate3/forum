@@ -33,4 +33,9 @@ class Reply extends Model{
     {
         return $this->belongsTo(config('forum.user.model'));
     }
+
+    public function hey()
+    {
+        dd(123);
+    }
 } 

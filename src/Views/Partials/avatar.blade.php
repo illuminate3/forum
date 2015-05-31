@@ -1,1 +1,1 @@
-<img width="80" height="80" class="img-thumbnail img-circle" src="{{ asset($user->avatar) }}" alt="{{ $user->email }}"/>
+<img class="img-thumbnail img-circle avatar hidden-xs" src="{{ asset($user->avatar) }}" alt="{{ $user->email }}"/>
