@@ -17,5 +17,5 @@
         "psr-4": {
             "Socieboy\\Forum\\": "packages/socieboy/forum/src"
         }
-    },
+    }
 }
