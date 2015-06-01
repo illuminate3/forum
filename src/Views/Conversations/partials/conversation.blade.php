@@ -13,7 +13,9 @@
         </a>
         <span class="conversation_date">
             @if($conversation->replies()->count() > 0)
-                 Updated {{ $conversation->created_at->diffForHumans() }} by {{ $conversation->replies->last()->user->{config('forum.user.username')} }}
+                 Updated {{ $conversation->replies->first()->created_at->diffForHumans() }} by {{ $conversation->replies->first()->user->{config('forum.user.username')} }}
+            @else
+                Posted {{ $conversation->created_at->diffForHumans() }} by {{ $conversation->user->{config('forum.user.username')} }}
             @endif
         </span>
         <div class="topic">
