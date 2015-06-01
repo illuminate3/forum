@@ -48,22 +48,15 @@
 }
 
 .forum .modal .modal-header{
-    background: #333333;
+    background: darkorange;
     color: #f5f5f5;
+    text-shadow: 1px 1px #333;
     text-align: center;
 }
 
 .forum .modal .modal-footer{
-    background: #333333;
+    background: darkorange;
     color: #f5f5f5;
-}
-
-.forum .modal .modal-footer .post-conversation
-{
-    float:right;
-    background: #f5f5f5;
-    color: #333;
-    border: 1px solid #000;
 }
 
 .forum .forum-body
@@ -79,7 +72,7 @@
     border: 0px;
 }
 
-.forum .forum-body ul li
+.forum .forum-body ul .list-group-item
 {
     padding: 2px 20px 2px 20px;
     border: 0px;
@@ -108,7 +101,7 @@
 
 .forum .forum-body ul li .replies
 {
-    margin-top: 50px;
+    margin-top: 48px;
     float: right;
     text-align: center;
 }
@@ -128,7 +121,22 @@
 
 .forum .forum-body ul li .details a h3
 {
-    margin-top: 35px;
+    margin-top: 23px;
     color: #333;
+}
+
+.forum .forum-body ul li .details .topic
+{
+    margin: 0px;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+.forum .forum-body ul li .details .topic .label
+{
+    margin: 0px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding:3px 10px!important;
 }
 
