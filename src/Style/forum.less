@@ -1,5 +1,11 @@
 .forum{
+  a{
+    color: darkorange;
+    text-decoration: none;
+  }
 
+  padding-bottom: 50px;
+  background: #f5f5f5;
   color: #333;
 
   .avatar{
@@ -110,8 +116,12 @@
         font-size: .9em;
 
         a h3{
-          margin-top: 23px;
+          margin-top: 20px;
           color: #333;
+        }
+
+        .conversation_date{
+          color: lightslategray;
         }
 
         .topic{
@@ -129,8 +139,127 @@
 
         }
 
-        
+
       }
+
     }
+
   }
+
+  .conversation-container{
+
+    .num_of_replies_divisor{
+      font-weight: 400;
+      background: #fdfdfd;
+      padding: 8px;
+      border:1px solid #c9c9c9;
+      border-radius: 8px;
+      margin-left: 25px !important;
+    }
+
+    .item{
+
+      margin-bottom: 50px;
+      margin-top: 50px;
+
+      .bubble
+      {
+        font-size:1.2em;
+        left: 25px;
+        position: relative;
+        width: 95%;
+        min-height: 80px;
+        padding: 20px;
+        background: #fdfdfd;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border: #ddd solid 1px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        &:after{
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 10px 7px 10px 0;
+          border-color: transparent #fdfdfd;
+          display: block;
+          width: 0;
+          z-index: 1;
+          left: -7px;
+          top: 20px;
+        }
+
+        &:before{
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 10px 7px 10px 0;
+          border-color: transparent #c9c9c9;
+          display: block;
+          width: 0;
+          z-index: 0;
+          left: -8px;
+          top: 20px;
+        }
+
+
+        pre{
+          background: #2D3037;
+          color: white;
+          left: -40px !important;
+        }
+
+
+      }
+
+      .bubble-footer{
+        background: #fafafa;
+        left: 25px;
+        position: relative;
+        width: 95%;
+        padding: 20px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border: #ddd solid 1px;
+        margin-top: -2px;
+        margin-bottom: 50px;
+
+        i{
+          font-size:1.5em;
+          margin:0px;
+          margin-right: 30px;
+          &:hover{
+            color: darkorange;
+            cursor: pointer;
+          }
+        }
+
+        .best_answer{
+          float: right;
+          margin-right: 130px;
+        }
+
+
+      }
+
+      .avatar{
+        margin-top: 0px;
+        margin-left: -51px;
+        width: 60px;
+        height: 60px;
+
+      }
+
+    }
+
+    margin-top:-1px;
+    padding: 20px;
+    border-left: 1px solid #D9D9D9;
+  }
+
 }
