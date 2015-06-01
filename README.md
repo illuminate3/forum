@@ -5,7 +5,7 @@
 Install package
 
 ```
-"Socieboy\Forum": "dev-master"
+composer require 'socieboy/forum:dev-master'
 ```
 
 Add the service provider to your app config file.
