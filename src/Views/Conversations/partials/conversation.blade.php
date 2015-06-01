@@ -20,7 +20,7 @@
             @endif
         </span>
         <div class="topic">
-            <div class="label label-success">{{ $conversation->topic }}</div>
+            <div class="label label-success"><span class="glyphicon glyphicon-tag"></span> {{ $conversation->topic }}</div>
         </div>
     </div>
 
