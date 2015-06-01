@@ -12,11 +12,8 @@
             <h3>{{ $conversation->title}}</h3>
         </a>
         <span class="conversation_date">
-            Posted {{ $conversation->created_at->diffForHumans() }}
-        </span>
-        <span class="last_post">
             @if($conversation->replies()->count() > 0)
-                 - Last reply by {{ $conversation->replies->last()->user->{config('forum.user.username')} }}
+                 Updated {{ $conversation->created_at->diffForHumans() }} by {{ $conversation->replies->last()->user->{config('forum.user.username')} }}
             @endif
         </span>
         <div class="topic">

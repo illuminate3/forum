@@ -1,9 +1,22 @@
-@include('Forum::Partials.avatar', ['user' => $reply->user])
+<article class="item">
 
-{{ $reply->user->email }}
+    @include('Forum::Partials.avatar', ['user' => $reply->user])
 
-<br/>
+    <div class="bubble">
 
-<div class="markdown">
-{!! $reply->message !!}
-</div>
+        Posted by <a href="#">{{ $reply->user->{config('forum.user.username')} }}</a>
+
+        {!! $reply->message !!}
+
+    </div>
+
+
+    <div class="bubble-footer">
+        <div class="container">
+            <i class="glyphicon glyphicon-thumbs-up"></i>
+            <i class="glyphicon glyphicon-thumbs-down"></i>
+            <i class="glyphicon glyphicon-ok best_answer"></i>
+        </div>
+    </div>
+
+</article>

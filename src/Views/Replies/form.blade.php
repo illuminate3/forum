@@ -1,3 +1,5 @@
+
+<div class="container col-md-12">
 <form action="{{ route('forum.conversation.reply.store', $conversation->slug) }}" method="POST">
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
@@ -13,3 +15,4 @@
     <button type="submit" class="btn btn-primary pull-right">Post your reply</button>
 
 </form>
+</div>
