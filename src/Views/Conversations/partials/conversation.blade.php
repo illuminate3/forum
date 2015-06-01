@@ -8,17 +8,20 @@
     </div>
 
     <div class="details">
-         <a href="{{ route('forum.conversation.show', $conversation->slug) }}">
+        <a href="{{ route('forum.conversation.show', $conversation->slug) }}">
             <h3>{{ $conversation->title}}</h3>
         </a>
         <span class="conversation_date">
             Posted {{ $conversation->created_at->diffForHumans() }}
         </span>
         <span class="last_post">
-        @if($conversation->replies()->count() > 0)
-             - Last reply by {{ $conversation->replies->last()->user->email }}
-        @endif
+            @if($conversation->replies()->count() > 0)
+                 - Last reply by {{ $conversation->replies->last()->user->{config('forum.user.username')} }}
+            @endif
         </span>
+        <div class="topic">
+            <div class="label label-success">{{ $conversation->topic }}</div>
+        </div>
     </div>
 
 

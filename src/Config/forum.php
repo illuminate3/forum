@@ -3,19 +3,22 @@
 return [
 
     /*
-     * Define the path to your template master view on your "resources/view" folder.
+     * Define the path to your master view on your "resources/view" folder.
      */
+
     'template'  => 'app',
 
 
     /*
-     * Define yield area where the forum views will be displayed on your app.
+     * Define @yield( $content ) area where the forum views will be displayed on your app.
      */
+
     'content'   => 'content',
 
     /*
      * Define topics for the forum
      */
+
     'topics' => [
         'general' => 'General',
     ],
@@ -24,13 +27,42 @@ return [
     /**
      * User settings
      */
+
     'user' => [
 
+        /**
+         * Path to your user model.
+         */
 
-        'model' => 'App\User',
+        'model'         => 'App\User',
 
+        /**
+         * Define the field on your table user that the forum will use to display to indetify the user.
+         *
+         *  examples:
+         *
+         *  username
+         *  name
+         *  full_name
+         *
+         *  etc...
+         */
 
-        'avatar' => true
+        'username'    => 'email',
+
+        /*
+         * If you need avatars on the forum.
+         */
+
+        'avatar'        => true,
+
+        /**
+         * Required if the avatar key is true.
+         *
+         * Define the field avatar on your users table.
+         */
+
+        'user-avatar'  => 'avatar'
 
     ],
 

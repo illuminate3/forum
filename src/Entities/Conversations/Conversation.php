@@ -33,4 +33,9 @@ class Conversation extends Model{
     {
         return $this->hasMany('Socieboy\Forum\Entities\Replies\Reply')->latest();
     }
+
+    public function getTopicAttribute()
+    {
+        return config('forum.topics.'.$this->topic_id);
+    }
 } 

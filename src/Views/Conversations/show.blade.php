@@ -9,16 +9,25 @@
 
 
     <div class="forum-body">
+                <div class="container">
 
         <div>{!! $conversation->message !!}</div>
 
-        @foreach($conversation->replies as $reply)
 
-            @include('Forum::Replies.show')
+            @foreach($replies as $reply)
+            <div class="row">
 
-        @endforeach
+                <div class="col-md-12">
+                    @include('Forum::Replies.show')
+                </div>
 
-        @include('Forum::Replies.form')
+            </div>
+            @endforeach
+
+                {!! $replies->render() !!}
+
+            @include('Forum::Replies.form')
+                </div>
 
     </div>
 

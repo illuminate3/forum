@@ -22,7 +22,10 @@ class ConversationController extends Controller{
     public function show($slug)
     {
         $conversation = Conversation::where('slug', $slug)->get()->first();
-        return view('Forum::Conversations.show', compact('conversation'));
+
+        $replies = $conversation->replies()->paginate(10);
+
+        return view('Forum::Conversations.show', compact('conversation', 'replies'));
     }
 
     /**
