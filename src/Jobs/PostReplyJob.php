@@ -6,12 +6,25 @@ use Socieboy\Forum\Entities\Replies\Reply;
 
 class PostReplyJob {
 
+    /**
+     * @var Reply
+     */
     protected $reply;
 
+    /**
+     * @var array
+     */
     protected $data;
 
+    /**
+     * @var CommonMarkConverter
+     */
     protected $converter;
 
+    /**
+     * @param Reply $reply
+     * @param array $data
+     */
     function __construct(Reply $reply, Array $data)
     {
         $this->reply = $reply;
@@ -21,6 +34,9 @@ class PostReplyJob {
         $this->converter = new CommonMarkConverter();
     }
 
+    /**
+     * Set the reply information and save it on database.
+     */
     public function handle()
     {
         $this->reply->conversation_id = $this->data['conversation_id'];

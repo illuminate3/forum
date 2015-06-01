@@ -7,19 +7,37 @@ use League\CommonMark\CommonMarkConverter;
 
 class StartConversationJob{
 
+    /**
+     * @var Conversation
+     */
     protected $conversation;
 
+    /**
+     * @var array
+     */
     protected $data;
 
+    /**
+     * @var CommonMarkConverter
+     */
     protected $converter;
 
+    /**
+     * @param Conversation $conversation
+     * @param array $data
+     */
     function __construct(Conversation $conversation, Array $data)
     {
         $this->conversation = $conversation;
+
         $this->data = $data;
+
         $this->converter = new CommonMarkConverter();
     }
 
+    /**
+     * Set the values of the conversation and save it in database.
+     */
     public function handle()
     {
         $this->conversation->user_id = Auth::User()->id;
@@ -34,6 +52,11 @@ class StartConversationJob{
     }
 
 
+    /**
+     * Create a slug.
+     *
+     * @return string
+     */
     protected function setSlug()
     {
         $slug = Str::Slug($this->data['title']);

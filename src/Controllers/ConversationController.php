@@ -29,16 +29,6 @@ class ConversationController extends Controller{
     }
 
     /**
-     * Create a new conversation
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create()
-    {
-        return view('Forum::create');
-    }
-
-    /**
      * Store the new conversation.
      *
      * @param ConversationRequest $request
