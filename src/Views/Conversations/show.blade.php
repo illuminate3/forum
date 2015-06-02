@@ -1,6 +1,8 @@
 @extends($template)
 @section($content)
 
+<div class="forum">
+
     <div class="forum-header">
 
         @include('Forum::Partials.avatar', ['user' => $conversation->user])
@@ -46,12 +48,6 @@
 
     </div>
 
-
-
-
-
-
-
-
+    </div>
 
 @stop

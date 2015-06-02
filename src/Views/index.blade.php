@@ -2,6 +2,7 @@
 @section($content)
 
 
+<div class="forum">
 
     <div class="forum-header">
         <h1>Forum</h1>
@@ -24,4 +25,5 @@
 
     </div>
 
+</div>
 @stop
