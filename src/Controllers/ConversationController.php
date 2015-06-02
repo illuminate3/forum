@@ -23,7 +23,7 @@ class ConversationController extends Controller{
     {
         $conversation = Conversation::where('slug', $slug)->get()->first();
 
-        $replies = $conversation->replies()->paginate(10);
+        $replies = $conversation->replies()->paginate(5);
 
         return view('Forum::Conversations.show', compact('conversation', 'replies'));
     }
