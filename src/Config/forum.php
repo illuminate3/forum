@@ -48,7 +48,7 @@ return [
          *  etc...
          */
 
-        'username'    => 'email',
+        'username'    => 'name',
 
         /*
          * If you need avatars on the forum.
