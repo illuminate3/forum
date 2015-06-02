@@ -7,7 +7,7 @@
 
         <p class="posted_by">Posted by <a href="#">{{ $reply->user->{config('forum.user.username')} }}</a></p>
 
-        {!! $reply->message !!}
+        {{ $reply->message }}
 
     </div>
 
