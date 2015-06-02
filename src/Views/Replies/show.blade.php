@@ -16,11 +16,23 @@
 
         <div class="container">
 
-            <i class="glyphicon glyphicon-thumbs-up"></i>
+        <form action="" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="reply_id" value="{{ $reply->id }}"/>
+            <button type="submit" class="glyphicon glyphicon-thumbs-up"></button>
+        </form>
 
-            <i class="glyphicon glyphicon-thumbs-down"></i>
+        <form action="" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="reply_id" value="{{ $reply->id }}"/>
+            <button type="submit" class="glyphicon glyphicon-thumbs-down"></button>
+        </form>
 
-            <i class="glyphicon glyphicon-ok best_answer"></i>
+        <form action="" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="reply_id" value="{{ $reply->id }}"/>
+            <button type="submit" class="glyphicon glyphicon-ok best_answer"></button>
+        </form>
 
         </div>
 
